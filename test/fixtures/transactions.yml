@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transaction_hash: MyString
+  block_height: 1
+  block_hash: MyString
+  sender: MyString
+  receiver: MyString
+  deposit: 9.99
+  timestamp: 2025-03-01 12:33:33
+
+two:
+  transaction_hash: MyString
+  block_height: 1
+  block_hash: MyString
+  sender: MyString
+  receiver: MyString
+  deposit: 9.99
+  timestamp: 2025-03-01 12:33:33
