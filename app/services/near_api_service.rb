@@ -14,7 +14,7 @@ class NearApiService
 
     transactions.select { |tx| tx.dig("actions", 0, "type") == "Transfer" }.map do |tx|
       {
-        hash: tx["hash"],
+        transaction_hash: tx["hash"],
         block_height: tx["height"],
         block_hash: tx["block_hash"],
         sender: tx["sender"],
