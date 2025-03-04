@@ -1,15 +1,19 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
+require "database_cleaner/active_record"
 
-module ActiveSupport
-  class TestCase
-    # Run tests in parallel with specified workers
-    parallelize(workers: :number_of_processors)
+DatabaseCleaner.strategy = :transaction
 
-    # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-    fixtures :all
+class ActiveSupport::TestCase
+  setup { DatabaseCleaner.start }
+  teardown { DatabaseCleaner.clean }
 
-    # Add more helper methods to be used by all tests here...
-  end
+  # Uncomment the next line if you want to use fixtures in some tests
+  # fixtures :all
 end
+
+require "sidekiq/testing"
+Sidekiq::Testing.inline!
+
+Minitest::Test.make_my_diffs_pretty!

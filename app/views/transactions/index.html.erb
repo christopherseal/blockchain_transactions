@@ -15,7 +15,7 @@
       <tr>
         <td><%= tx.sender %></td>
         <td><%= tx.receiver %></td>
-        <td><%= number_to_currency(tx.deposit, unit: "", precision: 6) %></td>
+        <td><%= number_with_precision(tx.deposit, precision: 6, delimiter: ",") %></td>
         <td><%= tx.timestamp.strftime("%Y-%m-%d %H:%M:%S") %></td>
         <td>
           <a href="#" class="hash-link"><%= tx.transaction_hash.truncate(15) %></a>

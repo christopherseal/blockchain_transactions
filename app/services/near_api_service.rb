@@ -18,8 +18,8 @@ class NearApiService
         block_height: tx["height"],
         block_hash: tx["block_hash"],
         sender: tx["sender"],
-        receiver: tx.dig("actions", 0, "receiver_id"),
-        deposit: tx.dig("actions", 0, "deposit").to_f,
+        receiver: tx["receiver"],
+        deposit: BigDecimal(tx.dig("actions", 0, "data", "deposit")) / 10**24,
         timestamp: Time.parse(tx["time"])
       }
     end
