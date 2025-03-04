@@ -1,0 +1,26 @@
+<h1 class="title">NEAR Blockchain Transactions</h1>
+
+<table class="transactions-table">
+  <thead>
+    <tr>
+      <th>Sender</th>
+      <th>Receiver</th>
+      <th>Deposit</th>
+      <th>Timestamp</th>
+      <th>Transaction Hash</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |tx| %>
+      <tr>
+        <td><%= tx.sender %></td>
+        <td><%= tx.receiver %></td>
+        <td><%= number_to_currency(tx.deposit, unit: "", precision: 6) %></td>
+        <td><%= tx.timestamp.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td>
+          <a href="#" class="hash-link"><%= tx.transaction_hash.truncate(15) %></a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
