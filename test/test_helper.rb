@@ -8,9 +8,6 @@ DatabaseCleaner.strategy = :transaction
 class ActiveSupport::TestCase
   setup { DatabaseCleaner.start }
   teardown { DatabaseCleaner.clean }
-
-  # Uncomment the next line if you want to use fixtures in some tests
-  # fixtures :all
 end
 
 require "sidekiq/testing"
